@@ -1,25 +1,38 @@
 * {
-	width: 100%;
 	margin: 0;
+	width: 100%;
 	font-family: 'Jua', sans-serif;
-}
-
-h1 {
-	text-align: center;
 }
 
 html, body {
 	height: 100%;
 }
 
+h1 {
+	text-align: center;
+}
+
 form {
+	width: 300px;
 	margin-left: auto;
-	margin-right: auto; 
-	width: 250px;
+	margin-right: auto;  
 }
 
 input {
+	width: 300px;
 	padding: 10px;
+	border: 1px solid black;
+	border-radius: 4px;
+	text-align: center;
+	margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+	margin-top: 5px;
+	margin-bottom: 15px; 
+}
+
+#color_button {
+	background-color: #5097ea;
 }
 
 .container {
@@ -32,31 +45,31 @@ input {
     align-items: center;
     align-content: center; 
     justify-content: center; 
-    overflow: auto;   
+    overflow: auto;
 }
 
-.login_block {
+.register_block {
 	width: 400px;
 }
 
-.main_foto { 
+.main_foto {
 	width: 400px;
 }
 
-.main_foto img {
+.main_foto img{
 	width: 100%;
 }
 
 .main_form {
-	padding: 20px 20px 20px 20px;
+	padding: 45px 20px 45px 20px;
 	border: 1px solid black;
 	width: 400px;
 }
 
-.newacc {
+.to_login {
 	padding: 20px 20px 20px 20px;
 	text-align: center;
 	margin-top: 0.7em;
-	border: 1px solid black;
 	width: 400px;
+	border: 1px solid black;
 }

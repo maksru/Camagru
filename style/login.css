@@ -1,0 +1,115 @@
+* {
+	width: 100%;
+	margin: 0;
+	font-family: 'Jua', sans-serif;
+}
+
+html, body {
+	height: 100%;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+form {
+	margin-left: auto;
+	margin-right: auto; 
+	width: 300px;
+}
+
+form p {
+	margin-top: 5px; 
+	text-align: center;
+}
+
+input {
+	width: 300px;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 4px;
+	text-align: center;
+	margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+	margin-top: 5px;
+	margin-bottom: 15px; 
+}
+
+footer {
+	position: fixed;
+    bottom: 50px;
+    width: 100%;
+}
+
+footer ul{
+	text-align: center;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+footer li{
+	list-style-type: none;
+	text-decoration: none;
+	display: inline;
+	margin-right: 20px;
+}
+
+#color_button {
+	background-color: #5097ea;
+}
+
+.container {
+	width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center; 
+    justify-content: center; 
+    overflow: auto;   
+}
+
+.main_foto {
+	width: 400px;
+}
+
+.main_foto img{
+	width: 100%;
+}
+
+/*.container .main_foto .foto_1 {
+	position: absolute;
+	left: 408px; 
+	top: 219px;
+	width: 210px;
+}
+
+.container .main_foto .foto_2 {
+	position: absolute;
+	left: 408px; 
+	top: 219px;
+	width: 210px;
+}*/
+
+.login_block {
+	width: 400px;
+}
+
+.main_form { 
+	padding: 45px 20px 45px 20px;
+	border: 1px solid black;
+	width: 400px;
+}
+
+.newacc {
+	padding: 20px 20px 20px 20px;
+	text-align: center;
+	margin-top: 0.7em;
+	border: 1px solid black;
+	width: 400px;
+}
