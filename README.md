@@ -1,1 +1,2 @@
 # Camagru
+Cool
