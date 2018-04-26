@@ -19,6 +19,7 @@
 						<li class="slide"><img class="slider_img" src="img/2_foto.jpg" alt="2"></li>
 						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
 						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
+						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
 						<li class="slide"><img class="slider_img" src="img/" alt="3"></li> -->
 					</ul>
 				</div>
