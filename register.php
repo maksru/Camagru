@@ -1,21 +1,26 @@
+<!-- <?php
+	/*require_once "db.php";*/
+?> -->
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style/register.css">
-	<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="shortcut icon" type="text/css" href="img/insta.png">
 	<title>Camagru</title>
 </head>
 <body>
 	<div class="container">
-		<div class="main_foto">
+		<div id="main_foto">
 			<img src="img/main_foto.png">
 		</div>
 		<div class="register_block">
 			<div class="main_form">
 				<h1>Camagru</h1>
-				<form method="POST">
+				<form method="POST" action="register.php">
 					<input type="text" name="mobile_number_or_email" placeholder="Mobile Number or Email" required>
 					<br />
 					<input type="text" name="full_name" placeholder="Full Name" required>
@@ -34,7 +39,21 @@
 	</div>
 
 	<footer>
-		
+		<ul>
+			<li><a href="#">ABOUT US</a></li>
+			<li><a href="#">SUPPORT</a></li>
+			<li><a href="#">BLOG</a></li>
+			<li><a href="#">PRESS</a></li>
+			<li><a href="#">API</a></li>
+			<li><a href="#">JOBS</a></li>
+			<li><a href="#">PRIVACY</a></li>
+			<li><a href="#">TERMS</a></li>
+			<li><a href="#">DIRECTORY</a></li>
+			<li><a href="#">PROFILES</a></li>
+			<li><a href="#">HASHTAGS</a></li>
+			<li><a href="#">LANGUAGE</a></li>
+			<li><a href="https://profile.intra.42.fr/users/mrudyk">© 2018 MRUDYK - CAMAGRU</a></li>
+		</ul>
 	</footer>
 </body>
 </html>

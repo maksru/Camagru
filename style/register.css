@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	width: 100%;
-	font-family: 'Jua', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -31,6 +31,30 @@ input {
 	margin-bottom: 15px; 
 }
 
+footer {
+	position: fixed;
+    bottom: 50px;
+    width: 100%;
+}
+
+footer ul {
+	text-align: center;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+footer li {
+	list-style-type: none;
+	text-decoration: none;
+	display: inline;
+	margin-right: 20px;
+}
+
+footer li a {
+	color: #133565;
+}
+
 #color_button {
 	background-color: #5097ea;
 }
@@ -52,11 +76,11 @@ input {
 	width: 400px;
 }
 
-.main_foto {
-	width: 400px;
+#main_foto {
+	width: 500px;
 }
 
-.main_foto img{
+#main_foto img{
 	width: 100%;
 }
 

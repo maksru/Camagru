@@ -2,52 +2,33 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 	<link rel="shortcut icon" type="text/css" href="img/insta.png">
 	<title>Camagru</title>
 </head>
 <body>
-
-	<!-- <script type="text/javascript">
-	    var images = new Array();
-	    var i = 0;
-	     
-	    images[0] = 'img/one_foto.jpg';
-	    images[1] = 'img/2_foto.jpg';
-	     
-	    function viewImages() 
-	    {
-	        document.getElementById("img_main").src = images[i]; 
-	        i++;
-	        if (i == images.length) 
-	        {
-	            i = 0;
-	        }
-	        setTimeout("viewImages()",5000);
-	    }   
-	</script>
- 
-	<img src="" id="img_main">
- 
-	<script> viewImages(); </script> -->
-
 	<div class="container">
-		<div id="img_main" class="main_foto">
+		<div id="main_foto">
 			<img src="img/main_foto.png">
-			<!-- <img class="foto_1" src="img/one_foto.jpg">
-			<img class="foto_2" src="img/2_foto.jpg"> -->
-			<!-- <img class="one_foto_3" src="img/"> -->
+			<div id="block_for_slider">
+				<div id="viewport">
+					<ul id="slidewrapper">
+						<!-- <li class="slide"><img class="slider_img" src="img/one_foto.jpg" alt="1"></li>
+						<li class="slide"><img class="slider_img" src="img/2_foto.jpg" alt="2"></li>
+						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
+						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
+						<li class="slide"><img class="slider_img" src="img/" alt="3"></li> -->
+					</ul>
+				</div>
+			</div>
 		</div>
 		<div class="login_block">
 			<div class="main_form">
 				<h1>Camagru</h1>
 				<form method="POST" action="#">
-					<label for="login">Login</label>
-					<br />
 					<input type="text" name="login" id="login" placeholder="Phone number, username, or email" required>
-					<br />
-					<label for="password">Password</label>
 					<br />
 					<input type="password" id="password" placeholder="Password" name="password" required>
 					<br />
