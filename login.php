@@ -61,7 +61,9 @@
 	</ul>
 </footer>
 
-<script type="text/javascript">
+<div id="test" onclick="$('#test').hide ()">Test</div>
+
+<!-- <script type="text/javascript">
 	var slideNow = 1
 	var translateWidth = 0;
 	var slideInterval = 2000;
@@ -89,6 +91,6 @@
 			slideNow++;
 		}
 	}
-</script>
+</script> -->
 </body>
 </html>
