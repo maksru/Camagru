@@ -65,6 +65,15 @@ footer li a {
 	background-color: #5097ea;
 }
 
+#main_foto {
+	width: 500px;
+	height: 700px;
+}
+
+#main_foto img{
+	width: 100%;
+}
+
 .container {
 	width: 100%;
     height: 100%;
@@ -78,19 +87,11 @@ footer li a {
     overflow: auto;   
 }
 
-#main_foto {
-	width: 500px;
-}
-
-#main_foto img{
-	width: 100%;
-}
-
 .login_block {
 	width: 400px;
 }
 
-.main_form { 
+.main_form {
 	padding: 45px 20px 45px 20px;
 	border: 1px solid black;
 	width: 400px;
@@ -106,13 +107,72 @@ footer li a {
 
 /*Слайдер на главном фото*/
 
-/*#block_for_slider {
-	margin-bottom: 100px;
-	position: rel;
-	height: 500px;
-	width: 500px;
-	border: 5px solid red;
-}*/
+#block_for_slider {
+	position: relative;
+	top: -575px;
+	left: 48px;
+	width: 265px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+#viewport {
+	width: 100%;
+	display: table;
+	position: relative;
+	overflow: hidden;
+	/*Определяет что пользователь может выбирать в нутри элемента(Apple Safari, Google Chorme).*/
+	-webkit-user-select: none;
+	/*Определяет что пользователь может выбирать в нутри элемента(Mazila Firefox).*/
+	-moz-user-select: none;
+	/*Определяет что пользователь может выбирать в нутри элемента(Opera).*/
+	-o-user-select: none;
+	/*Управляет поведением выделения текста и других элементов на странице.*/
+	user-select: none;
+}
+
+#slidewrapper {
+	position: relative;
+	width: calc(100% * 5);
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	/*Анимированный переход(Apple Safari, Google Chorme).*/
+	-webkit-transition: 1s;
+	/*Анимированный переход(Opera).*/
+	-webkit-transition: 1s;
+	/*Устанавливает эффект перехода между двумя состояниями элемента.*/
+	transition: 1s;
+	/*Устанавливает, насколько быстро должно изменяться значение стилевого свойство для которого применяется 
+	эффект перехода(Apple Safari, Google Chorme).*/
+	-webkit-transition-timing-function: ease-in-out;
+	/*Устанавливает, насколько быстро должно изменяться значение стилевого свойство для которого применяется 
+	эффект перехода(Opera).*/
+	-o-transition-timing-function: ease-in-out;
+	/*Устанавливает, насколько быстро должно изменяться значение стилевого свойство для которого применяется 
+	эффект перехода.*/
+	transition-timing-function: ease-in-out;
+}
+
+#slidewrapper ul, #slidewrapper li {
+	margin: 0;
+	padding: 0;
+}
+
+#slidewrapper li {
+	width: calc(100% / 5);
+	list-style: none;
+	display: inline;
+	float: left;
+}
+
+.slide-img {
+    width: 100%;
+}
+
+
 
 
 

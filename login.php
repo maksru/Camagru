@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style/login.css">
 	<link rel="shortcut icon" type="text/css" href="img/insta.png">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<title>Camagru</title>
 </head>
 <body>
@@ -15,12 +16,11 @@
 			<div id="block_for_slider">
 				<div id="viewport">
 					<ul id="slidewrapper">
-						<!-- <li class="slide"><img class="slider_img" src="img/one_foto.jpg" alt="1"></li>
+						<li class="slide"><img class="slider_img" src="img/one_foto.jpg" alt="1"></li>
 						<li class="slide"><img class="slider_img" src="img/2_foto.jpg" alt="2"></li>
-						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
-						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
-						<li class="slide"><img class="slider_img" src="img/" alt="3"></li>
-						<li class="slide"><img class="slider_img" src="img/" alt="3"></li> -->
+						<li class="slide"><img class="slider_img" src="img/3_foto.jpg" alt="3"></li>
+						<li class="slide"><img class="slider_img" src="img/4_foto.jpg" alt="4"></li>
+						<li class="slide"><img class="slider_img" src="img/5_foto.jpg" alt="5"></li>
 					</ul>
 				</div>
 			</div>
@@ -61,5 +61,34 @@
 	</ul>
 </footer>
 
+<script type="text/javascript">
+	var slideNow = 1
+	var translateWidth = 0;
+	var slideInterval = 2000;
+	var slideCount = $('#slidewrapper').children().lenght();
+
+	$(document).ready(function() {
+		setInterval(nextSlide, slideInterval);
+	});
+
+	function nextSlide() 
+	{
+		if (slideNow == slideCount || slideNow <= 0 || slideNow > slideCount) 
+		{
+			$('#slidewrapper').css('transform', 'translate(0, 0)');
+			slideNow = 1;
+		}
+		else 
+		{
+			translateWidth = -$('#viewport').width() * (slideNow);
+			$('#slidewrapper').css({
+				'transform': 'translate(' + translateWidth + 'px, 0)',
+				'-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+            	'-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+			});
+			slideNow++;
+		}
+	}
+</script>
 </body>
 </html>
