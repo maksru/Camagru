@@ -16,6 +16,13 @@
 	<div class="container">
 		<div id="main_foto">
 			<img src="img/main_foto.png">
+			<div id="block_for_slider">
+					<img src="img/one_foto.jpg" id="img_1"/>
+					<img src="img/2_foto.jpg" id="img_2"/>
+					<img src="img/3_foto.jpg" id="img_3"/>
+					<img src="img/4_foto.jpg" id="img_4"/>
+					<img src="img/5_foto.jpg" id="img_5"/>
+			</div>
 		</div>
 		<div class="register_block">
 			<div class="main_form">
@@ -55,5 +62,7 @@
 			<li><a href="https://profile.intra.42.fr/users/mrudyk">© 2018 MRUDYK - CAMAGRU</a></li>
 		</ul>
 	</footer>
+	<script src="js/script.js" type="text/javascript"></script>
+
 </body>
 </html>

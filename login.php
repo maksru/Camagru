@@ -14,15 +14,11 @@
 		<div id="main_foto">
 			<img src="img/main_foto.png">
 			<div id="block_for_slider">
-				<div id="viewport">
-					<ul id="slidewrapper">
-						<li class="slide"><img class="slider_img" src="img/one_foto.jpg" alt="1"></li>
-						<li class="slide"><img class="slider_img" src="img/2_foto.jpg" alt="2"></li>
-						<li class="slide"><img class="slider_img" src="img/3_foto.jpg" alt="3"></li>
-						<li class="slide"><img class="slider_img" src="img/4_foto.jpg" alt="4"></li>
-						<li class="slide"><img class="slider_img" src="img/5_foto.jpg" alt="5"></li>
-					</ul>
-				</div>
+					<img src="img/one_foto.jpg" id="img_1"/>
+					<img src="img/2_foto.jpg" id="img_2"/>
+					<img src="img/3_foto.jpg" id="img_3"/>
+					<img src="img/4_foto.jpg" id="img_4"/>
+					<img src="img/5_foto.jpg" id="img_5"/>
 			</div>
 		</div>
 		<div class="login_block">
@@ -60,7 +56,10 @@
 		<li><a href="https://profile.intra.42.fr/users/mrudyk">© 2018 MRUDYK - CAMAGRU</a></li>
 	</ul>
 </footer>
+<script src="js/script.js" type="text/javascript"></script>
 
+<<<<<<< HEAD
+=======
 <div id="test" onclick="$('#test').hide ()">Test</div>
 
 <!-- <script type="text/javascript">
@@ -92,5 +91,6 @@
 		}
 	}
 </script> -->
+>>>>>>> 6b78bffdd6c6dfb78e0b23f60bb5172a980fe394
 </body>
 </html>
