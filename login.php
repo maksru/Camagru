@@ -58,39 +58,5 @@
 </footer>
 <script src="js/script.js" type="text/javascript"></script>
 
-<<<<<<< HEAD
-=======
-<div id="test" onclick="$('#test').hide ()">Test</div>
-
-<!-- <script type="text/javascript">
-	var slideNow = 1
-	var translateWidth = 0;
-	var slideInterval = 2000;
-	var slideCount = $('#slidewrapper').children().lenght();
-
-	$(document).ready(function() {
-		setInterval(nextSlide, slideInterval);
-	});
-
-	function nextSlide() 
-	{
-		if (slideNow == slideCount || slideNow <= 0 || slideNow > slideCount) 
-		{
-			$('#slidewrapper').css('transform', 'translate(0, 0)');
-			slideNow = 1;
-		}
-		else 
-		{
-			translateWidth = -$('#viewport').width() * (slideNow);
-			$('#slidewrapper').css({
-				'transform': 'translate(' + translateWidth + 'px, 0)',
-				'-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
-            	'-ms-transform': 'translate(' + translateWidth + 'px, 0)',
-			});
-			slideNow++;
-		}
-	}
-</script> -->
->>>>>>> 6b78bffdd6c6dfb78e0b23f60bb5172a980fe394
 </body>
 </html>
