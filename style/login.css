@@ -73,7 +73,7 @@ footer li a {
 }
 
 #main_foto img{
-	width: 100%;
+	width: 100vw;
 }
 
 .container {
@@ -113,7 +113,6 @@ footer li a {
 	position: relative;
 	top: -575px;
 	left: 49px;
-	width: 265px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0;

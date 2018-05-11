@@ -1,6 +1,6 @@
 <?php
-	define('DB_DSN', 'localhost');
-	define('DB_USER', 'root');
-	define('DB_PASSWORD', 'maks1234');
-	define('DB_NAME', 'camagru');
+	define('BD_DSN', 'localhost');
+	define('BD_USER', 'root');
+	define('BD_PASSWORD', 'maks1234');
+	define('BD_NAME', 'db_camagru');
 ?>

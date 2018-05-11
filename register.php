@@ -1,7 +1,23 @@
-<!-- <?php
-	/*require_once "db.php";*/
-?> -->
-
+<?php
+	require_once "config/connect_db.php";
+	session_start();
+	if (!empty($_SESSION['login_user']) && $_SESSION(['login_user'] != ""))
+		header('Location: video.php');
+	if (isset($_POST) && !empty($_POST)) :
+		if (isset($_POST['login'])) :
+			$login = $_POST['login'];
+		endif;
+		if (isset($_POST['email'])) :
+			$email = $_POST['email'];
+		endif;
+		if (isset($_POST['password_1'])) :
+			$pass = hash('whirlpool', $_POST['password_1']);
+		endif;
+		
+		$sql = "INSERT INTO users (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
+		mysqli_query($connect, $sql);
+	endif;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,13 +44,14 @@
 			<div class="main_form">
 				<h1>Camagru</h1>
 				<form method="POST" action="register.php">
-					<input type="text" name="mobile_number_or_email" placeholder="Mobile Number or Email" required>
+					<!-- <input type="text" name="mobile_number_or_email" placeholder="Mobile Number or Email" required> -->
+					<input type="text" name="email" placeholder="Email" required>
 					<br />
 					<input type="text" name="full_name" placeholder="Full Name" required>
 					<br />
-					<input type="text" name="username" placeholder="Username" required>
+					<input type="text" name="login" placeholder="Username" required>
 					<br />
-					<input type="password" name="password" placeholder="Password" required>
+					<input type="password" name="password_1" placeholder="Password" required>
 					<br />
 					<input type="submit" name="sign_up" value="Sign up" id="color_button">
 				</form>
