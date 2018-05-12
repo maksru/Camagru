@@ -1,3 +1,33 @@
+<?php
+	require_once "config/connect_db.php";
+	session_start();
+	//Спросить у Вани.
+	if (!empty($_SESSION['login_user']) && $_SESSION['login_user'] != "")
+		header('Location: video.php');
+	if (!empty($_POST) && isset($_POST)) :
+		if (isset($_POST['login'])) :
+			$login = $_POST['login'];
+		endif;
+		if (isset($_POST['password'])) :
+			$password = hash('whirlpool', $_POST['password']);
+		endif;
+
+		$sql = "SELECT * FROM users WHERE login='$login'";
+		$rezult = mysqli_query($connect, $sql);
+		print_r($rezult);
+		if (mysqli_num_rows($rezult) == 0) :
+			$row = mysqli_fetch_assoc($rezult);
+		else :
+			die("ERROR: Wrong Login.");
+		endif;
+		if ($row['password'] != $password) :
+			die("ERROR: Wrong Password");
+		endif;
+		$_SESSION['login_user'] = $row;
+	endif;
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +54,7 @@
 		<div class="login_block">
 			<div class="main_form">
 				<h1>Camagru</h1>
-				<form method="POST" action="#">
+				<form method="POST" action="login.php">
 					<input type="text" name="login" id="login" placeholder="Phone number, username, or email" required>
 					<br />
 					<input type="password" id="password" placeholder="Password" name="password" required>

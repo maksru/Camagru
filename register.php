@@ -1,21 +1,42 @@
 <?php
 	require_once "config/connect_db.php";
+	//Спросить у Вани.
 	session_start();
 	if (!empty($_SESSION['login_user']) && $_SESSION(['login_user'] != ""))
 		header('Location: video.php');
 	if (isset($_POST) && !empty($_POST)) :
 		if (isset($_POST['login'])) :
-			$login = $_POST['login'];
+			$login = trim($_POST['login']);
 		endif;
 		if (isset($_POST['email'])) :
-			$email = $_POST['email'];
+			$email = trim($_POST['email']);
 		endif;
 		if (isset($_POST['password_1'])) :
 			$pass = hash('whirlpool', $_POST['password_1']);
 		endif;
-		
-		$sql = "INSERT INTO users (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
-		mysqli_query($connect, $sql);
+		if (isset($_POST['full_name'])) :
+			$full_name = trim($_POST['full_name']);
+		endif;
+
+		if (!empty($login) && !empty($email) && !empty($pass) && !empty($full_name)) 
+		{
+			$query = "SELECT * FROM `users` WHERE login = '$login'";
+			$data = mysqli_query($connect, $query);
+			if (mysqli_num_rows($data) == 0)
+			{
+				$sql = "INSERT INTO `users` (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
+				mysqli_query($connect, $sql);
+				echo "<script type=\"text/javascript\">".
+        			"alert('Регистрация прошла успешно!');".
+        			"</script>";
+			}
+			else
+			{
+				echo "<script type=\"text/javascript\">".
+        			"alert('Логин уже существуйет!');".
+        			"</script>";
+			}
+		}
 	endif;
 ?>
 <!DOCTYPE html>
