@@ -4,29 +4,31 @@
 	//Спросить у Вани.
 	if (!empty($_SESSION['login_user']) && $_SESSION['login_user'] != "")
 		header('Location: video.php');
-	if (!empty($_POST) && isset($_POST)) :
+
+	if (isset($_POST) && !empty($_POST)) :
+		print_r($_POST);
+		echo "<br>";
+
 		if (isset($_POST['login'])) :
 			$login = $_POST['login'];
 		endif;
 		if (isset($_POST['password'])) :
-			$password = hash('whirlpool', $_POST['password']);
+			$pass = hash('whirlpool', $_POST['password']);
 		endif;
-
-		$sql = "SELECT * FROM users WHERE login='$login'";
+		$sql = "SELECT * FROM users WHERE login='" . $login . "'";
 		$rezult = mysqli_query($connect, $sql);
-		print_r($rezult);
-		if (mysqli_num_rows($rezult) == 0) :
+		if (mysqli_num_rows($rezult) > 0) :
 			$row = mysqli_fetch_assoc($rezult);
 		else :
 			die("ERROR: Wrong Login.");
 		endif;
-		if ($row['password'] != $password) :
+		if ($row['password'] != $pass) :
 			die("ERROR: Wrong Password");
 		endif;
 		$_SESSION['login_user'] = $row;
 	endif;
-?>
 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -59,7 +61,7 @@
 					<br />
 					<input type="password" id="password" placeholder="Password" name="password" required>
 					<br />
-					<input type="submit" name="login" value="Log in" id="color_button">
+					<input type="submit" name="log" value="Log in" id="color_button">
 					<br />
 					<p><a href="#" style="color: #5097ea">Forgot password</a></p>
 				</form>
