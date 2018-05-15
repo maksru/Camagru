@@ -3,12 +3,9 @@
 	session_start();
 	//Спросить у Вани.
 	if (!empty($_SESSION['login_user']) && $_SESSION['login_user'] != "")
-		header('Location: video.php');
+		header('Location: account_user.php');
 
 	if (isset($_POST) && !empty($_POST)) :
-		print_r($_POST);
-		echo "<br>";
-
 		if (isset($_POST['login'])) :
 			$login = $_POST['login'];
 		endif;
@@ -46,11 +43,11 @@
 		<div id="main_foto">
 			<img src="img/main_foto.png">
 			<div id="block_for_slider">
-					<img src="img/one_foto.jpg" id="img_1"/>
-					<img src="img/2_foto.jpg" id="img_2"/>
-					<img src="img/3_foto.jpg" id="img_3"/>
-					<img src="img/4_foto.jpg" id="img_4"/>
-					<img src="img/5_foto.jpg" id="img_5"/>
+				<img src="img/one_foto.jpg" id="img_1"/>
+				<img src="img/2_foto.jpg" id="img_2"/>
+				<img src="img/3_foto.jpg" id="img_3"/>
+				<img src="img/4_foto.jpg" id="img_4"/>
+				<img src="img/5_foto.jpg" id="img_5"/>
 			</div>
 		</div>
 		<div class="login_block">

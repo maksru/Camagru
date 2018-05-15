@@ -12,12 +12,45 @@ SET time_zone = "+00:00";
 --
 -- Структура таблицы `users`
 --
-CREATE TABLE `users` (
-`id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+`id` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `full_name` varchar(128) NOT NULL,
 `login` varchar(60) NOT NULL,
 `password` varchar(128) NOT NULL,
 `email` varchar(128) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Структура таблицы `images`
+--
+CREATE TABLE IF NOT EXISTS `images` (
+`id_images` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`id_gallery` int(11) NOT NULL,
+`path_images` varchar(255) NOT NULL,
+`text_images` text NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Структура таблицы `gallery`
+--
+CREATE TABLE IF NOT EXISTS `gallery` (
+`id` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`id_user` int(11) NOT NULL,
+`name_gallery` varchar(255) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Структура таблицы `commenst`
+--
+CREATE TABLE IF NOT EXISTS `commenst` (
+`id_commenst` int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`id_images` int(11) NOT NULL DEFAULT '0',
+`user_name` varchar(255) NOT NULL,
+`user_email` varchar(128) NOT NULL,
+`text_commenst` text NOT NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

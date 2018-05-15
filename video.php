@@ -16,7 +16,7 @@
 	<canvas id="canvas" width="320" height="240" ></canvas>
 	</div>
 	<input id="button" type="button" value="Жми!" />
-
+	<a href="account_user.php" style="color: red">Acc</a>
 	<script type="text/javascript">
 		window.onload = function () {
 		var canvas = document.getElementById('canvas');
@@ -60,6 +60,5 @@
 		});
 		};
 	</script>
-	
 </body>
 </html>
