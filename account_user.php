@@ -16,12 +16,12 @@
 	</div>
 	<div class="logout">
 		<a href="logout.php" style="color: red">Logout</a>
-		<a href="video.php" style="color: red">Cams</a>
+		<a href="cams.php" style="color: red">Cams</a>
 	</div>
 </div>
 
 	<h1>Image Gallery</h1>
-	<!-- <div class="gallery">
+	<div class="gallery">
 		<div class="foto_gallery">
 			<a href="gallery/by WhiteWolfik (2).jpg"><img src="gallery/by WhiteWolfik (2).jpg"></a>
 			<a href="gallery/by WhiteWolfik (3).jpg"><img src="gallery/by WhiteWolfik (3).jpg"></a>
@@ -36,7 +36,7 @@
 			<a href="gallery/by WhiteWolfik (19).jpg"><img src="gallery/by WhiteWolfik (19).jpg"></a>
 			<a href="gallery/by WhiteWolfik (20).jpg"><img src="gallery/by WhiteWolfik (20).jpg"></a>
 		</div>
-	</div> -->
+	</div>
 
 
 <footer>

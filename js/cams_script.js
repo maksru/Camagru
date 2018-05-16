@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style/video.css">
-	<meta charset="utf-8">
-	<title>Video</title>
-</head>
-<body>
-	<div id="allow">▲ ▲ ▲ Разрешите использовать камеру ▲ ▲ ▲ <br/> ( Сверху текущей страницы )</div>
-	<div class="item">
-	<span> video </span>
-	<video id="video" width="320" height="240" autoplay="autoplay" ></video>
-	</div>
-	<div class="item">
-	<span> canvas </span>
-	<canvas id="canvas" width="320" height="240" ></canvas>
-	</div>
-	<input id="button" type="button" value="Жми!" />
-	<a href="account_user.php" style="color: red">Acc</a>
-	<script type="text/javascript">
-		window.onload = function () {
+window.onload = function () {
 		var canvas = document.getElementById('canvas');
 		var video = document.getElementById('video');
 		var button = document.getElementById('button');
@@ -59,6 +39,3 @@
 		console.log('что-то не так с видеостримом или пользователь запретил его использовать :P');
 		});
 		};
-	</script>
-</body>
-</html>

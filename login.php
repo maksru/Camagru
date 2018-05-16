@@ -1,7 +1,6 @@
 <?php
 	require_once "config/connect_db.php";
 	session_start();
-	//Спросить у Вани.
 	if (!empty($_SESSION['login_user']) && $_SESSION['login_user'] != "")
 		header('Location: account_user.php');
 
@@ -85,8 +84,8 @@
 		<li><a href="https://profile.intra.42.fr/users/mrudyk">© 2018 MRUDYK - CAMAGRU</a></li>
 	</ul>
 </footer>
-<script src="js/script.js" type="text/javascript"></script>
 
+<script src="js/slider_script.js" type="text/javascript"></script>
 
 </body>
 </html>

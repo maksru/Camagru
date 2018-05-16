@@ -1,4 +1,3 @@
-	// Спросить у Вани.
 	var image_count = 5;
 	var interval = 3000; //пауза
 	var time_out = 25; //скорость смены картинки
