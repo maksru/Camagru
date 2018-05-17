@@ -22,6 +22,7 @@
 			die("ERROR: Wrong Password");
 		endif;
 		$_SESSION['login_user'] = $row;
+		header('Location: account_user.php');
 	endif;
 
 ?>

@@ -4,13 +4,6 @@
 	margin: 0;
 }
 
-input {
-	text-align: center;
-	margin-right: auto;
-    margin-left: auto;
-	width: 100px;
-}
-
 footer {
 	position: fixed;
     bottom: 50px;
@@ -49,24 +42,73 @@ video {
 	background-color: #fafafa;
 }
 
+/*.container_cams {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}*/
+
 .window_cams {
-	margin-top: 10px; 
+	margin-right: auto;
+	margin-left: auto;
+	width: 640px; 
+	height:480px;
+	margin-top: 100px; 
+	border: 2px solid black; 
 }
 
-.icon {
-	width: 800px;
-	height: 190px;
-	margin: 0;
-	overflow: hidden;
+.button {
+	width: 644px;
+	height: 50px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.button input {
+	display: block;
+	position: relative;
+	background-color: green;
+    cursor: pointer;
+    height: 50px;
+    border:none;
+}
+
+/*--------------------------------------------------------------*/
+/*Полоса прокрутки иконок*/
+.carousel-container {
+	display: flex;
+	align-items: center;
+	height: 18em;
+	width: 640px;
 	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+	margin-top: 1em;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.icon img {
-	float: left;
-	padding: 5px;
-	width: 150px;
+.carousel-container-block {
+	display: flex;
+	flex-direction: column;
 }
 
+.foto-wrapper {
+	/*position: relative;*/
+    display: flex;
+    align-items: center;
+    width: 8em;
+    height: 14em;
+    padding: 0 1.5em 0;
+}
+
+.foto-carusel {
+	/*width: 8em;*/
+    cursor: pointer;
+}
+/*--------------------------------------------------------------*/
+
+/*Скрытие canvas*/
 .item {
 	display: none;
 }

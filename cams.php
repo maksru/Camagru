@@ -6,39 +6,102 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style/cams.css">
 	<meta charset="utf-8">
-	<title>Cams</title>
+	<title>Camagru | Cams</title>
 </head>
 <body>
 	<div class="container">
 		<a href="account_user.php" style="color: red">Gallery</a>
 	</div>
+	<div class="container_cams">
+		<div id="allow"></div>
 
-	<div id="allow"></div>
+		<div class="window_cams">
+			<video id="video" width="640" height="480" autoplay="autoplay" ></video>
+			<div id="gallery_block"></div>
+		</div>
 
-	<div class="window_cams">
-		<video id="video" width="500" height="300" autoplay="autoplay" ></video>
+		<div class="item">
+			<canvas id="canvas" width="640" height="480" ></canvas>
+		</div>
+
+		<div class="button">
+			<input id="button" type="button" value="Shoot" />
+		</div>
+		
+		<div class="carousel-container">
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super01.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super02.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super03.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super04.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super05.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super06.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super07.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super08.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super09.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super10.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super12.png">
+				</div>
+			</div>
+
+			<div class="carousel-container-block">
+				<div class="foto-wrapper">
+					<img class="foto-carusel" src="super_icon/super13.png">
+				</div>
+			</div>
+		</div>
 	</div>
-
-	<div class="item">
-		<canvas id="canvas" width="500" height="300" ></canvas>
-	</div>
-
-	<input id="button" type="button" value="Жми!" />
-	
-	<div class="icon">
-		<img src="super_icon/super01.png">
-		<img src="super_icon/super02.png">
-		<img src="super_icon/super03.png">
-		<img src="super_icon/super04.png">
-		<img src="super_icon/super05.png">
-		<img src="super_icon/super06.png">
-		<img src="super_icon/super07.png">
-		<img src="super_icon/super08.png">
-		<img src="super_icon/super09.png">
-		<img src="super_icon/super10.png">
-		<img src="super_icon/super12.png">
-	</div>
-
 	<footer>
 		<ul>
 			<li><a href="#">ABOUT US</a></li>
