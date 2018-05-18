@@ -36,40 +36,58 @@ video {
 	-webkit-transform: scaleX(-1);
 }
 
+/*--------------------------------------------------------------*/
+/*Контейнер Header*/
 .container {
 	border-bottom: 1px solid black;
 	height: 76px;
 	background-color: #fafafa;
 }
 
-/*.container_cams {
-	height: 100%;
+/*--------------------------------------------------------------*/
+/*Блок с камерой*/
+.cams_block {
 	display: flex;
+	margin-top: 100px;
 	justify-content: center;
-}*/
-
-.window_cams {
-	margin-right: auto;
-	margin-left: auto;
-	width: 640px; 
-	height:480px;
-	margin-top: 100px; 
-	border: 2px solid black; 
+	height: 480px;
 }
 
+.cams-block-end-button {
+	width: 640px; 
+	height: 480px;
+}
+
+.window_cams {
+	display: flex;
+	width: 640px; 
+	height: 480px;
+	border: 2px solid black;
+}
+
+#gallery_block  {
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	border: 2px solid black;
+	width: 320px; 
+	height:480px;
+	margin-left: 15px;
+}
+
+/*--------------------------------------------------------------*/
+/*Кнопка "сделать фото"*/
 .button {
 	width: 644px;
 	height: 50px;
-	margin-right: auto;
-	margin-left: auto;
 }
 
 .button input {
-	display: block;
-	position: relative;
 	background-color: green;
     cursor: pointer;
     height: 50px;
+    outline:none;
     border:none;
 }
 
@@ -79,11 +97,11 @@ video {
 	display: flex;
 	align-items: center;
 	height: 18em;
-	width: 640px;
+	width: 990px;
 	overflow-x: scroll;
 	overflow-y: hidden;
 	white-space: nowrap;
-	margin-top: 1em;
+	margin-top: 4em;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -94,7 +112,6 @@ video {
 }
 
 .foto-wrapper {
-	/*position: relative;*/
     display: flex;
     align-items: center;
     width: 8em;

@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="style/account_user.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo GALLERY?>theme/style.css">
 	<meta charset="utf-8">
-	<title>User account</title>
+	<title>Camagru | User account</title>
 </head>
 <body>
 <div class="container">

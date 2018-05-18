@@ -15,19 +15,24 @@
 	<div class="container_cams">
 		<div id="allow"></div>
 
-		<div class="window_cams">
-			<video id="video" width="640" height="480" autoplay="autoplay" ></video>
+		<div class="cams_block">
+			<div class="cams-block-end-button">
+				<div class="window_cams">
+					<video id="video" width="640" height="480" autoplay="autoplay" ></video>
+				</div>
+
+				<div class="button">
+					<input id="button" type="button" value="Shoot" />
+				</div>
+			</div>
+
+			<div class="item">
+				<canvas id="canvas" width="640" height="480"></canvas>
+			</div>
+
 			<div id="gallery_block"></div>
 		</div>
-
-		<div class="item">
-			<canvas id="canvas" width="640" height="480" ></canvas>
-		</div>
-
-		<div class="button">
-			<input id="button" type="button" value="Shoot" />
-		</div>
-		
+	
 		<div class="carousel-container">
 			<div class="carousel-container-block">
 				<div class="foto-wrapper">
