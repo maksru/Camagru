@@ -4,11 +4,15 @@
 	margin: 0;
 }
 
+body, html {
+	height: 100%;
+}
+
 /*--------------------------------------------------------------*/
 /*Блок футер*/
 footer {
-	position: fixed;
-    bottom: 50px;
+	margin: 5em 0em 5em 0em;
+	bottom: 50px;
     width: 100%;
 }
 
@@ -91,8 +95,20 @@ video {
 	background-color: green;
     cursor: pointer;
     height: 50px;
+    margin-top: 5px;
     outline:none;
     border:none;
+}
+
+/*--------------------------------------------------------------*/
+/*Блок из трех кнопок*/
+.button .block-thee-button {
+	float: left;
+	display: flex;
+	justify-content: space-around;
+	height: 50px;
+	width: 155px;
+	margin-top: 5px;
 }
 
 /*--------------------------------------------------------------*/
@@ -100,7 +116,7 @@ video {
 .carousel-container {
 	display: flex;
 	align-items: center;
-	height: 18em;
+	height: 20em;
 	width: 990px;
 	overflow-x: scroll;
 	overflow-y: hidden;

@@ -22,12 +22,12 @@
 				</div>
 
 				<div class="button">
-					<input id="button" type="button" value="Shoot" onclick="three_buttons()" />
+					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" />
 					<a href="" download="awesome_pic.png">
-						<input id="button1" type="button" value="Download" style="display: none;" download="awesome_pic.png" />
+						<button id="button_download" class="block-thee-button" style="display: none;" type="button" download="awesome_pic.png">Download</button>
 					</a>
-					<input id="button2" style="display: none;" value="Try again" />
-					<input id="button3" style="display: none;" value="Save to gallery" />
+					<button id="button_try_again" class="block-thee-button" style="display: none;" onclick="one_button()">Try again</button>
+					<button id="button_save_to_gallery" style="display: none;" class="block-thee-button">Save to gallery</button>
 				</div>
 			</div>
 

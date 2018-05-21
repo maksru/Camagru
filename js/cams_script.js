@@ -47,13 +47,31 @@ window.onload = function ()
 };
 
 function three_buttons() {
-	var but_none = document.getElementById("button").style.display = "none";
+	var button_shoot = document.getElementById("button_shoot").style.display = "none";
 
-	if (but_none  == "none")
+	if (button_shoot  == "none")
 	{
-		var but_none1 = document.getElementById("button1").style.display = "block";
-		var but_none2 = document.getElementById("button2").style.display = "block";
-		var but_none3 = document.getElementById("button3").style.display = "block";
+		document.getElementById("button_download").style.display = "block";
+		document.getElementById("button_try_again").style.display = "block";
+		document.getElementById("button_save_to_gallery").style.display = "block";
 	}
 
 };
+
+function one_button() {
+	var button_try_again = document.getElementById("button_try_again").style.display = "block";
+	
+	if (button_try_again  == "block")
+	{
+		document.getElementById("button_shoot").style.display = "block";
+		document.getElementById("button_download").style.display = "none";
+		document.getElementById("button_try_again").style.display = "none";
+		document.getElementById("button_save_to_gallery").style.display = "none";
+	}
+
+};
+// Загрузка фото на компьютер
+function button_download(href) {
+		let downloadBtnHref = document.getElementById('download-button-href');
+		downloadBtnHref.href = href;
+	}
