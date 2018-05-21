@@ -45,3 +45,15 @@ window.onload = function ()
 		console.log('что-то не так с видеостримом или пользователь запретил его использовать :P');
 		});
 };
+
+function three_buttons() {
+	var but_none = document.getElementById("button").style.display = "none";
+
+	if (but_none  == "none")
+	{
+		var but_none1 = document.getElementById("button1").style.display = "block";
+		var but_none2 = document.getElementById("button2").style.display = "block";
+		var but_none3 = document.getElementById("button3").style.display = "block";
+	}
+
+};

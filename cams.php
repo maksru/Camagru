@@ -22,7 +22,12 @@
 				</div>
 
 				<div class="button">
-					<input id="button" type="button" value="Shoot" />
+					<input id="button" type="button" value="Shoot" onclick="three_buttons()" />
+					<a href="" download="awesome_pic.png">
+						<input id="button1" type="button" value="Download" style="display: none;" download="awesome_pic.png" />
+					</a>
+					<input id="button2" style="display: none;" value="Try again" />
+					<input id="button3" style="display: none;" value="Save to gallery" />
 				</div>
 			</div>
 
