@@ -18,13 +18,14 @@
 		<div class="cams_block">
 			<div class="cams-block-end-button">
 				<div class="window_cams">
-					<video id="video" width="640" height="480" autoplay="autoplay" ></video>
+					<video id="video" width="640" height="480" autoplay="autoplay"></video>
+					<!-- <div class="div_icon"></div> -->
 				</div>
 
 				<div class="button">
 					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" />
 					<a href="" download="awesome_pic.png">
-						<button id="button_download" class="block-thee-button" style="display: none;" type="button" download="awesome_pic.png">Download</button>
+						<button id="button_download" class="block-thee-button" style="display: none;" type="button" download="awesome_pic.png" onclick="button_download()">Download</button>
 					</a>
 					<button id="button_try_again" class="block-thee-button" style="display: none;" onclick="one_button()">Try again</button>
 					<button id="button_save_to_gallery" style="display: none;" class="block-thee-button">Save to gallery</button>
@@ -41,7 +42,7 @@
 		<div class="carousel-container">
 			<div class="carousel-container-block">
 				<div class="foto-wrapper">
-					<img class="foto-carusel" src="super_icon/super01.png">
+					<img id="glass_mustache" class="foto-carusel" src="super_icon/super01.png" onclick="initDragDrop()">
 				</div>
 			</div>
 
@@ -129,7 +130,8 @@
 			<li><a href="https://profile.intra.42.fr/users/mrudyk">© 2018 MRUDYK - CAMAGRU</a></li>
 		</ul>
 	</footer>
-
 	<script src="js/cams_script.js" type="text/javascript"></script>
+	<!-- <script src="js/grag_and_drop.js" type="text/javascript"></script> -->
+	<!-- <script src="js/test2.js" type="text/javascript"></script> -->
 </body>
 </html>

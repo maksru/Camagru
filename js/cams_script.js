@@ -1,8 +1,17 @@
+// Функция работы с камерой.
+const canvas = document.getElementById('canvas');
+const video = document.getElementById('video');
+const button_shoot = document.getElementById('button_shoot');
+const allow = document.getElementById('allow');
+const gallery_block = document.getElementById('gallery_block');
+const context = canvas.getContext('2d');
+const videoStreamUrl = false;
+
 window.onload = function () 
 {
 		var canvas = document.getElementById('canvas');
 		var video = document.getElementById('video');
-		var button = document.getElementById('button');
+		var button_shoot = document.getElementById('button_shoot');
 		var allow = document.getElementById('allow');
 		var gallery_block = document.getElementById('gallery_block');
 		var context = canvas.getContext('2d');
@@ -26,8 +35,8 @@ window.onload = function ()
 			gallery_block.appendChild(img);
 		}
 
-		button.addEventListener('click', captureMe);
-		// navigator.getUserMedia  и   window.URL.createObjectURL (смутные времена браузерных противоречий 2012)
+		button_shoot.addEventListener('click', captureMe);
+
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 		window.URL.createObjectURL = window.URL.createObjectURL || window.URL.webkitCreateObjectURL || window.URL.mozCreateObjectURL || window.URL.msCreateObjectURL;
 
@@ -46,6 +55,7 @@ window.onload = function ()
 		});
 };
 
+//Функция скрытия кномки "Shoot". 
 function three_buttons() {
 	var button_shoot = document.getElementById("button_shoot").style.display = "none";
 
@@ -58,6 +68,7 @@ function three_buttons() {
 
 };
 
+//Функция появления кномки "Shoot".
 function one_button() {
 	var button_try_again = document.getElementById("button_try_again").style.display = "block";
 	
@@ -75,3 +86,88 @@ function button_download(href) {
 		let downloadBtnHref = document.getElementById('download-button-href');
 		downloadBtnHref.href = href;
 	}
+
+
+// Move superimposed pictures script
+function startDrag(e) {
+	// determine event object
+	if (!e) {
+		var e = window.event;
+	}
+	e.preventDefault();
+	targ = e.target;
+	if (targ.className != 'abs-pic') { return };
+
+	// calculate event X, Y coordinates
+	offsetX = e.clientX;
+	offsetY = e.clientY;
+	// assign default values for top and left properties
+	if (!targ.style.left) { targ.style.left = '0px'};
+	if (!targ.style.top) { targ.style.top = '0px'};
+	// calculate integer values for top and left properties
+	coordX = parseInt(targ.style.left);
+	coordY = parseInt(targ.style.top);
+
+	drag = true;
+
+	// move div element
+	document.onmousemove = dragDiv;
+}
+function dragDiv(e) {
+	if (!drag) { return };
+	if (!e) { var e = window.event};
+
+	targ.style.left = coordX + e.clientX - offsetX + 'px';
+	targ.style.top = coordY + e.clientY - offsetY + 'px';
+}
+function stopDrag() {
+	drag = false;
+}
+
+// Добавление иконок на video.
+const imPic = [...document.querySelectorAll('.carousel-container-block .foto-wrapper img')];
+imPic.forEach(function(pic) {
+		pic.onclick = function putSimIm() {
+		const simIm = document.createElement('img');
+		simIm.src = pic.src;
+		simIm.classList.add('abs-pic');
+		document.querySelector('.window_cams').appendChild(simIm);
+		document.onmousedown = startDrag;
+		document.onmouseup = stopDrag;
+		pic.onclick = function() {
+			document.querySelector('.window_cams').removeChild(simIm);
+			pic.onclick = putSimIm;
+		}
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

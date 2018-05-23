@@ -68,9 +68,21 @@ video {
 
 .window_cams {
 	display: flex;
+	position: relative !important;
 	width: 640px; 
 	height: 480px;
 	border: 2px solid black;
+}
+
+.abs-pic {
+	position: absolute;
+	width: 20%;
+	height: 30%;
+	top: 0;
+	left: 0;
+}
+.abs-pic:hover {
+	cursor: move;
 }
 
 #gallery_block  {
@@ -82,6 +94,19 @@ video {
 	width: 320px; 
 	height:480px;
 	margin-left: 15px;
+}
+
+/*--------------------------------------------------------------*/
+/*"*/
+.div_icon {
+	border: 1px solid red;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*посмотреть*/
+	z-index: 2;
 }
 
 /*--------------------------------------------------------------*/
@@ -109,6 +134,7 @@ video {
 	height: 50px;
 	width: 155px;
 	margin-top: 5px;
+	cursor: pointer;
 }
 
 /*--------------------------------------------------------------*/
