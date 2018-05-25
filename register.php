@@ -19,22 +19,25 @@
 
 		if (!empty($login) && !empty($email) && !empty($pass) && !empty($full_name)) 
 		{
-			$query = "SELECT * FROM `users` WHERE login = '$login'";
-			$data = mysqli_query($connect, $query);
-			if (mysqli_num_rows($data) == 0)
+			$query = "SELECT * FROM `users` WHERE `login` = '$login'";
+			$data = $pdo->query($query);
+			$row = $data->fetch();
+
+			if (!isset($row['login']))
 			{
 				$sql = "INSERT INTO `users` (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
-				mysqli_query($connect, $sql);
+				$pdo->exec($sql);
 				echo "<script type=\"text/javascript\">".
-        			"alert('Регистрация прошла успешно!');".
-        			"</script>";
+				"alert('Регистрация прошла успешно!');".
+				"</script>";
 			}
 			else
 			{
 				echo "<script type=\"text/javascript\">".
-        			"alert('Логин уже существуйет!');".
-        			"</script>";
+				"alert('Логин уже существуйет!');".
+				"</script>";
 			}
+			$pdo = null;
 		}
 	endif;
 ?>

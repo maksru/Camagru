@@ -11,20 +11,18 @@
 		if (isset($_POST['password'])) :
 			$pass = hash('whirlpool', $_POST['password']);
 		endif;
-		$sql = "SELECT * FROM users WHERE login='" . $login . "'";
-		$rezult = mysqli_query($connect, $sql);
-		if (mysqli_num_rows($rezult) > 0) :
-			$row = mysqli_fetch_assoc($rezult);
-		else :
+		$sql = "SELECT * FROM `users` WHERE login='" . $login . "'";
+		$data = $pdo->query($sql);
+		$rezult = $data->fetch();
+		if (!isset($rezult)) :
 			die("ERROR: Wrong Login.");
 		endif;
-		if ($row['password'] != $pass) :
+		if ($rezult['password'] != $pass) :
 			die("ERROR: Wrong Password");
 		endif;
-		$_SESSION['login_user'] = $row;
+		$_SESSION['login_user'] = $rezult;
 		header('Location: account_user.php');
 	endif;
-
 ?>
 
 <!DOCTYPE html>

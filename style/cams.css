@@ -74,39 +74,40 @@ video {
 	border: 2px solid black;
 }
 
-.abs-pic {
-	position: absolute;
-	width: 20%;
-	height: 30%;
-	top: 0;
-	left: 0;
-}
-.abs-pic:hover {
-	cursor: move;
-}
-
 #gallery_block  {
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	border: 2px solid black;
 	width: 320px; 
 	height:480px;
 	margin-left: 15px;
 }
 
 /*--------------------------------------------------------------*/
-/*"*/
+/*Блок с canvas*/
+.canvas_block {
+	display: flex;
+	flex-direction: column;
+	width: 320px; 
+	height:243px;
+	margin-left: 15px;
+}
+
+.canvas_block canvas {
+	display: none;
+}
+/*--------------------------------------------------------------*/
+/*Блок с иконками на video*/
 .div_icon {
-	border: 1px solid red;
-	width: 100%;
-	height: 100%;
 	position: absolute;
+	width: 20%;
+	height: 30%;
 	top: 0;
 	left: 0;
-	/*посмотреть*/
-	z-index: 2;
+}
+.div_icon:hover {
+	cursor: move;
 }
 
 /*--------------------------------------------------------------*/
@@ -132,7 +133,7 @@ video {
 	display: flex;
 	justify-content: space-around;
 	height: 50px;
-	width: 155px;
+	width: 107px;
 	margin-top: 5px;
 	cursor: pointer;
 }
@@ -143,7 +144,7 @@ video {
 	display: flex;
 	align-items: center;
 	height: 20em;
-	width: 990px;
+	width: 1305px;
 	overflow-x: scroll;
 	overflow-y: hidden;
 	white-space: nowrap;
@@ -168,10 +169,4 @@ video {
 .foto-carusel {
 	/*width: 8em;*/
     cursor: pointer;
-}
-/*--------------------------------------------------------------*/
-
-/*Скрытие canvas*/
-.item {
-	display: none;
 }

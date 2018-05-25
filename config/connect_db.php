@@ -1,9 +1,13 @@
 <?php
 	include_once "database.php";
 
-	$connect = mysqli_connect(BD_DSN, BD_USER, BD_PASSWORD, BD_NAME);
-	if (!$connect)
+	try
 	{
-		die("Connection failed: " . $connect->connect_error);
-	}  
+    	$pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    }
+	catch(PDOException $e)
+    {
+    	echo "Connection failed: " . $e->getMessage();
+    }
 ?>

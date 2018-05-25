@@ -1,3 +1,8 @@
+<?php
+	// $new_img = $_POST['img'];
+	// print_r($new_img);  
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,32 +22,35 @@
 
 		<div class="cams_block">
 			<div class="cams-block-end-button">
-				<div class="window_cams">
-					<video id="video" width="640" height="480" autoplay="autoplay"></video>
-					<!-- <div class="div_icon"></div> -->
-				</div>
-
+					<div class="window_cams">
+						<video id="video" width="640" height="480" autoplay="autoplay"></video>
+						<div class="div_icon_block" id="div_icon_block"></div>
+					</div>
 				<div class="button">
-					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" />
-					<a href="" download="awesome_pic.png">
-						<button id="button_download" class="block-thee-button" style="display: none;" type="button" download="awesome_pic.png" onclick="button_download()">Download</button>
-					</a>
-					<button id="button_try_again" class="block-thee-button" style="display: none;" onclick="one_button()">Try again</button>
-					<button id="button_save_to_gallery" style="display: none;" class="block-thee-button">Save to gallery</button>
+					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" disabled/>
 				</div>
 			</div>
 
-			<div class="item">
+			<div class="canvas_block">
 				<canvas id="canvas" width="640" height="480"></canvas>
+				<form action="cams.php" method="POST">
+					<img id="new-img" name="img"  src="">				
+					<div class="button">
+						<a href="">
+							<button id="button_download" class="block-thee-button" style="display: none;" type="button">Download</button>
+						</a>
+							<button id="button_try_again" class="block-thee-button" style="display: none;" onclick="one_button()">Try again</button>
+							<button id="button_save_to_gallery" style="display: none;" class="block-thee-button" value="img_test">Save to gallery</button>
+					</div>
+				</form>
 			</div>
-
 			<div id="gallery_block"></div>
 		</div>
 	
 		<div class="carousel-container">
 			<div class="carousel-container-block">
 				<div class="foto-wrapper">
-					<img id="glass_mustache" class="foto-carusel" src="super_icon/super01.png" onclick="initDragDrop()">
+					<img id="glass_mustache" class="foto-carusel" src="super_icon/super01.png">
 				</div>
 			</div>
 

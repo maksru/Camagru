@@ -1,12 +1,4 @@
 // Функция работы с камерой.
-const canvas = document.getElementById('canvas');
-const video = document.getElementById('video');
-const button_shoot = document.getElementById('button_shoot');
-const allow = document.getElementById('allow');
-const gallery_block = document.getElementById('gallery_block');
-const context = canvas.getContext('2d');
-const videoStreamUrl = false;
-
 window.onload = function () 
 {
 		var canvas = document.getElementById('canvas');
@@ -30,9 +22,11 @@ window.onload = function ()
 			context.setTransform(1, 0, 0, 1, 0, 0); // убираем все кастомные трансформации canvas
 			// на этом этапе можно спокойно отправить  base64dataUrl на сервер и сохранить его там как файл (ну или типа того) 
 			// но мы добавим эти тестовые снимки в наш пример:
-			var img = new Image();
+			// var img = new Image();
+			// img.src = base64dataUrl;
+			// gallery_block.appendChild(img);
+			var img = document.getElementById("new-img");
 			img.src = base64dataUrl;
-			gallery_block.appendChild(img);
 		}
 
 		button_shoot.addEventListener('click', captureMe);
@@ -81,12 +75,6 @@ function one_button() {
 	}
 
 };
-// Загрузка фото на компьютер
-function button_download(href) {
-		let downloadBtnHref = document.getElementById('download-button-href');
-		downloadBtnHref.href = href;
-	}
-
 
 // Move superimposed pictures script
 function startDrag(e) {
@@ -96,7 +84,7 @@ function startDrag(e) {
 	}
 	e.preventDefault();
 	targ = e.target;
-	if (targ.className != 'abs-pic') { return };
+	if (targ.className != 'div_icon') { return };
 
 	// calculate event X, Y coordinates
 	offsetX = e.clientX;
@@ -124,27 +112,83 @@ function stopDrag() {
 	drag = false;
 }
 
+
+
 // Добавление иконок на video.
 const imPic = [...document.querySelectorAll('.carousel-container-block .foto-wrapper img')];
 imPic.forEach(function(pic) {
 		pic.onclick = function putSimIm() {
 		const simIm = document.createElement('img');
 		simIm.src = pic.src;
-		simIm.classList.add('abs-pic');
-		document.querySelector('.window_cams').appendChild(simIm);
+		simIm.classList.add('div_icon');
+		document.querySelector('.div_icon_block').appendChild(simIm);
+		document.getElementById('button_shoot').disabled = false;
 		document.onmousedown = startDrag;
 		document.onmouseup = stopDrag;
 		pic.onclick = function() {
-			document.querySelector('.window_cams').removeChild(simIm);
+			document.querySelector('.div_icon_block').removeChild(simIm);
+			document.getElementById('button_shoot').disabled = true;
 			pic.onclick = putSimIm;
 		}
 	}
 });
 
+// Загрузка фото на компьютер
+function canvasDrawing(){
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    
+    context.save();
+    context.beginPath();
+    context.moveTo(10, 10);
+    context.lineTo(290, 290);
+    context.stroke();
+    context.restore();
+}
+ 
+function getImage(canvas){
+    var imageData = canvas.toDataURL();
+    var image = new Image();
+    image.src = imageData;
+    return image;
+}
+ 
+function saveImage(image) {
+    var link = document.createElement("a");
+ 
+    link.setAttribute("href", image.src);
+    link.setAttribute("download", "canvasImage");
+    link.click();
+}
+ 
+canvasDrawing();
+
+// Второй вариант записи навешевания события.
+
+// var down = document.getElementById("button_download");
+// down.addEventListener("click", saveCanvasAsImageFile());
+// function saveCanvasAsImageFile(){
+//     var image = getImage(document.getElementById("canvas"));
+//     saveImage(image);
+// }
+
+var down = document.getElementById("button_download");
+down.onclick = function saveCanvasAsImageFile(){
+    var image = getImage(document.getElementById("canvas"));
+    saveImage(image);
+}
 
 
-
-
+// document.getElementById('button_shoot').disabled = false;
+// Блокировка кнопки.
+// var but_block = document.getElementById("foto-wrapper");
+// but_block.onclick = function button_shoot_block() {
+// 	var test_but = getElementById("div_icon_block");
+// 	if (test_but == "red")
+// 	{
+// 		document.getElementById('button_shoot').disabled = false;
+// 	}
+// }
 
 
 
