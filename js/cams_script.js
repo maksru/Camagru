@@ -1,3 +1,4 @@
+// ***********************************************************************************
 // Функция работы с камерой.
 window.onload = function () 
 {
@@ -49,6 +50,7 @@ window.onload = function ()
 		});
 };
 
+// ***********************************************************************************
 //Функция скрытия кномки "Shoot". 
 function three_buttons() {
 	var button_shoot = document.getElementById("button_shoot").style.display = "none";
@@ -62,6 +64,7 @@ function three_buttons() {
 
 };
 
+// ***********************************************************************************
 //Функция появления кномки "Shoot".
 function one_button() {
 	var button_try_again = document.getElementById("button_try_again").style.display = "block";
@@ -76,6 +79,7 @@ function one_button() {
 
 };
 
+// ***********************************************************************************
 // Move superimposed pictures script
 function startDrag(e) {
 	// determine event object
@@ -112,8 +116,7 @@ function stopDrag() {
 	drag = false;
 }
 
-
-
+// ***********************************************************************************
 // Добавление иконок на video.
 const imPic = [...document.querySelectorAll('.carousel-container-block .foto-wrapper img')];
 imPic.forEach(function(pic) {
@@ -133,6 +136,7 @@ imPic.forEach(function(pic) {
 	}
 });
 
+// ***********************************************************************************
 // Загрузка фото на компьютер
 function canvasDrawing(){
     var canvas = document.getElementById("canvas");
@@ -163,37 +167,34 @@ function saveImage(image) {
  
 canvasDrawing();
 
-// Второй вариант записи навешевания события.
-
-// var down = document.getElementById("button_download");
-// down.addEventListener("click", saveCanvasAsImageFile());
-// function saveCanvasAsImageFile(){
-//     var image = getImage(document.getElementById("canvas"));
-//     saveImage(image);
-// }
-
 var down = document.getElementById("button_download");
 down.onclick = function saveCanvasAsImageFile(){
     var image = getImage(document.getElementById("canvas"));
     saveImage(image);
 }
 
+// ***********************************************************************************
+// Сохранение фото в базу данных.
+// & - с новой строки.
+var but = document.getElementById("button_save_to_gallery");
+but.addEventListener('click', save_img);
+function save_img () {
+	var auth_id = document.getElementById("auth_id");
+	var log_user = document.getElementById("log_user");
+	var img_src = document.getElementById("new-img");
 
-// document.getElementById('button_shoot').disabled = false;
-// Блокировка кнопки.
-// var but_block = document.getElementById("foto-wrapper");
-// but_block.onclick = function button_shoot_block() {
-// 	var test_but = getElementById("div_icon_block");
-// 	if (test_but == "red")
-// 	{
-// 		document.getElementById('button_shoot').disabled = false;
-// 	}
-// }
+	var data = "auth_id = " + auth_id.innerHTML + "&log_user = " + log_user.innerHTML + "&img_src = " + img_src.src;
 
-
-
-
-
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "save_to_gallery.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(data);
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			console.log(this.responseText);
+		}
+	};
+}
 
 
 

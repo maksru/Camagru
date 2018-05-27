@@ -1,8 +1,6 @@
 <?php
-	// $new_img = $_POST['img'];
-	// print_r($new_img);  
+	session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,16 +31,16 @@
 
 			<div class="canvas_block">
 				<canvas id="canvas" width="640" height="480"></canvas>
-				<form action="cams.php" method="POST">
-					<img id="new-img" name="img"  src="">				
-					<div class="button">
-						<a href="">
-							<button id="button_download" class="block-thee-button" style="display: none;" type="button">Download</button>
-						</a>
-							<button id="button_try_again" class="block-thee-button" style="display: none;" onclick="one_button()">Try again</button>
-							<button id="button_save_to_gallery" style="display: none;" class="block-thee-button" value="img_test">Save to gallery</button>
-					</div>
-				</form>
+				<img id="new-img" name="img"  src="">
+				<div class="hidden" id="auth_id"><?php echo $_SESSION['login_user']['id']; ?></div>
+				<div class="hidden" id="log_user"><?php echo $_SESSION['login_user']['login']; ?></div>		
+				<div class="button">
+					<a href="">
+						<button id="button_download" class="block-thee-button" style="display: none;" type="button">Download</button>
+					</a>
+						<button id="button_try_again" class="block-thee-button" style="display: none;" onclick="one_button()">Try again</button>
+						<button id="button_save_to_gallery" style="display: none;" class="block-thee-button">Save to gallery</button>
+				</div>
 			</div>
 			<div id="gallery_block"></div>
 		</div>
