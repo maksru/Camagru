@@ -12,15 +12,29 @@ window.onload = function ()
 		// функция которая будет выполнена при нажатии на кнопку захвата кадра
 		var captureMe = function () 
 		{
-			if (!videoStreamUrl) alert('То-ли вы не нажали "разрешить" в верху окна, то-ли что-то не так с вашим видео стримом')
-			// переворачиваем canvas зеркально по горизонтали (см. описание внизу статьи)
-			context.translate(canvas.width, 0);
+			if (!videoStreamUrl) alert('То-ли вы не нажали "разрешить" в верху окна, то-ли что-то не так с вашим видео стримом');
+			// context.translate(canvas.width, 0);
+			// context.scale(-1, 1);
+			// context.drawImage(video, 0, 0, video.width, video.height);
+
+			context.save();
 			context.scale(-1, 1);
-			// отрисовываем на канвасе текущий кадр видео
-			context.drawImage(video, 0, 0, video.width, video.height);
+			context.drawImage(video , 0, 0, video.videoWidth * (-1), video.videoHeight);
+			context.restore();
+			// *************************************************************
+			// Склеивание фото и отрисовываем на канвасе текущий кадр видео.
+			var drawnImg = document.getElementsByClassName("div_icon");
+			for (var i = 0; drawnImg[i]; i++)
+			{
+				canvas.getContext("2d").drawImage(
+					drawnImg[i],
+					drawnImg[i].style.left.slice(0, -2), drawnImg[i].style.top.slice(0, -2),
+					drawnImg[i].width, drawnImg[i].height
+				);
+			}
 			// получаем data: url изображения c canvas
 			var base64dataUrl = canvas.toDataURL('image/png');
-			context.setTransform(1, 0, 0, 1, 0, 0); // убираем все кастомные трансформации canvas
+			// context.setTransform(1, 0, 0, 1, 0, 0); // убираем все кастомные трансформации canvas
 			// на этом этапе можно спокойно отправить  base64dataUrl на сервер и сохранить его там как файл (ну или типа того) 
 			// но мы добавим эти тестовые снимки в наш пример:
 			// var img = new Image();
@@ -124,6 +138,8 @@ imPic.forEach(function(pic) {
 		const simIm = document.createElement('img');
 		simIm.src = pic.src;
 		simIm.classList.add('div_icon');
+		simIm.style.width = "250px";
+		simIm.style.height = "250px";
 		document.querySelector('.div_icon_block').appendChild(simIm);
 		document.getElementById('button_shoot').disabled = false;
 		document.onmousedown = startDrag;
@@ -136,6 +152,22 @@ imPic.forEach(function(pic) {
 	}
 });
 
+// ***********************************************************************************
+// Склеивание фото
+var draw = document.getElementById("button_shoot");
+draw.addEventListener('click', draw_img);
+function draw_img() {
+	var drawnImg = document.getElementsByClassName("div_icon");
+	var canvas = document.getElementById("canvas");
+	for (var i = 0; drawnImg[i]; i++)
+	{
+		canvas.getContext("2d").drawImage(
+			drawnImg[i],
+			drawnImg[i].style.left.slice(0, -2), drawnImg[i].style.top.slice(0, -2),
+			drawnImg[i].width, drawnImg[i].height
+		);
+	}
+}
 // ***********************************************************************************
 // Загрузка фото на компьютер
 function canvasDrawing(){
@@ -183,7 +215,7 @@ function save_img () {
 	var log_user = document.getElementById("log_user");
 	var img_src = document.getElementById("new-img");
 
-	var data = "auth_id = " + auth_id.innerHTML + "&log_user = " + log_user.innerHTML + "&img_src = " + img_src.src;
+	var data = "auth_id=" + auth_id.innerHTML + "&log_user=" + log_user.innerHTML + "&img_src=" + img_src.src;
 
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST", "save_to_gallery.php", true);
