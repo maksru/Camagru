@@ -1,3 +1,9 @@
+<?php
+	require_once "config/connect_db.php";
+	session_start();
+	if (empty($_SESSION['login_user']) && isset($_SESSION['login_user']) == 0)
+		header("Location: index.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +17,21 @@
 </head>
 <body>
 <div class="container">
-	<div class="crug">
-		<p>User</p>	
-	</div>
 	<div class="logout">
-		<a href="logout.php" style="color: red">Logout</a>
-		<a href="cams.php" style="color: red">Cams</a>
+		<a href="logout.php" style="color: red"><img src="img/exit_icon.png"></a>
+	</div>
+	<h1>CAMAGRU</h1>
+	<div class="user_profile">
+		<div class="icon_user">
+			<a href="user_profile.php"><img src="img/user_male_filled-512.png"></a>
+			<a href="user_profile.php"><?php echo mb_strtoupper($_SESSION['login_user']['login']);?></a>
+		</div>
+	</div>
+	<div class="use_cams">
+		<a href="cams.php" style="color: red"><img src="img/take_foto.png"></a>
 	</div>
 </div>
 
-	<h1>Image Gallery</h1>
 	<div class="gallery">
 		<div class="foto_gallery">
 			<a href="gallery/by WhiteWolfik (2).jpg"><img src="gallery/by WhiteWolfik (2).jpg"></a>

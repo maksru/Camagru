@@ -15,7 +15,6 @@ p {
 }
 
 footer {
-	position: fixed;
     bottom: 50px;
     width: 100%;
 }
@@ -39,19 +38,20 @@ footer li a {
 }
 
 .container {
+	display: flex;
 	border-bottom: 1px solid black;
-	height: 76px;
+	height: 80px;
 	background-color: #fafafa;
 }
 
 .gallery {
-	margin: 10px 50px;
+	width: 100%;
+	height: auto;
 }
 
 .foto_gallery {
-	width: 1000px;
-	margin-right: auto;
-	margin-left: auto;
+	width: 852px;
+	margin: 0 auto;
 }
 
 .gallery img {
@@ -77,4 +77,41 @@ footer li a {
 	width: 65px;
 }
 
+/*************************************************************/
+/*Кнопка выхода*/
+.logout {
+	display: flex;
+	width: 70px;
+}
 
+.logout a img {
+	margin-top: 8px;
+}
+
+/*************************************************************/
+/*Кнопка "Камера"*/
+.use_cams {
+	width: 6em;
+}
+
+/*************************************************************/
+/*Переход на профиль пользователя.*/
+.user_profile {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	width: 7em;
+	height: auto;
+	/*margin-top: 8px;*/
+	/*margin-right: 25px; */
+}
+
+.icon_user {
+	height: auto;
+	width: 3em;
+}
+
+.icon_user a {
+	text-decoration: none;
+	text-align: center;
+}

@@ -85,6 +85,5 @@
 </footer>
 
 <script src="js/slider_script.js" type="text/javascript"></script>
-
 </body>
 </html>

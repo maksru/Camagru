@@ -1,5 +1,8 @@
 <?php
+	require_once "config/connect_db.php";
 	session_start();
+	if (empty($_SESSION['login_user']) && isset($_SESSION['login_user']) == "")
+		header("Location: index.php")
 ?>
 <!DOCTYPE html>
 <html>
