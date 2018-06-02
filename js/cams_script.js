@@ -6,7 +6,7 @@ window.onload = function ()
 		var video = document.getElementById('video');
 		var button_shoot = document.getElementById('button_shoot');
 		var allow = document.getElementById('allow');
-		var gallery_block = document.getElementById('gallery_block');
+		// var gallery_block = document.getElementById('gallery_block');
 		var context = canvas.getContext('2d');
 		var videoStreamUrl = false;
 		// функция которая будет выполнена при нажатии на кнопку захвата кадра
@@ -153,23 +153,7 @@ imPic.forEach(function(pic) {
 });
 
 // ***********************************************************************************
-// Склеивание фото
-var draw = document.getElementById("button_shoot");
-draw.addEventListener('click', draw_img);
-function draw_img() {
-	var drawnImg = document.getElementsByClassName("div_icon");
-	var canvas = document.getElementById("canvas");
-	for (var i = 0; drawnImg[i]; i++)
-	{
-		canvas.getContext("2d").drawImage(
-			drawnImg[i],
-			drawnImg[i].style.left.slice(0, -2), drawnImg[i].style.top.slice(0, -2),
-			drawnImg[i].width, drawnImg[i].height
-		);
-	}
-}
-// ***********************************************************************************
-// Загрузка фото на компьютер
+// Сохраннеие фото на компьютер
 function canvasDrawing(){
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
@@ -223,6 +207,7 @@ function save_img () {
 	xhttp.send(data);
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
+			window.location.reload();
 			console.log(this.responseText);
 		}
 	};

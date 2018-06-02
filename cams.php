@@ -25,7 +25,7 @@
 			<div class="cams-block-end-button">
 					<div class="window_cams">
 						<video id="video" width="640" height="480" autoplay="autoplay"></video>
-						<div class="div_icon_block" id="div_icon_block"></div>
+						<div class="div_icon_block" id="div_icon_block" width="640" height="480" style="overflow: hidden;"></div>
 					</div>
 				<div class="button">
 					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" disabled/>
@@ -45,7 +45,18 @@
 						<button id="button_save_to_gallery" style="display: none;" class="block-thee-button">Save to gallery</button>
 				</div>
 			</div>
-			<div id="gallery_block"></div>
+			<div id="gallery_block">
+				<?php
+					$id_gallery = $_SESSION['login_user']['id'];
+					$sql = "SELECT * FROM `images` WHERE id_gallery = $id_gallery";
+					$data = $pdo->query($sql);
+					$rezult = $data->fetchAll();
+					foreach ($rezult as $value)
+					{
+						echo('<div><img src="'.$value['path_images'].'"></div>');
+					}
+				?>
+			</div>
 		</div>
 	
 		<div class="carousel-container">

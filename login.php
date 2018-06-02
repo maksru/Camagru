@@ -11,7 +11,7 @@
 		if (isset($_POST['password'])) :
 			$pass = hash('whirlpool', $_POST['password']);
 		endif;
-		$sql = "SELECT * FROM `users` WHERE login='" . $login . "'";
+		$sql = "SELECT * FROM `users` WHERE login = '" . $login . "'";
 		$data = $pdo->query($sql);
 		$rezult = $data->fetch();
 		if (!isset($rezult)) :

@@ -27,9 +27,32 @@
 			{
 				$sql = "INSERT INTO `users` (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
 				$pdo->exec($sql);
-				echo "<script type=\"text/javascript\">".
-				"alert('Регистрация прошла успешно!');".
-				"</script>";
+				// header("Location: test.php");
+				$mail_to = $email;
+				$encoding = "utf-8";
+				$mail_subject = "Activation";
+				$mail_message = "Your login is: ".$login.".<br />Your password is: ".$_POST['password_1'].".<br />To make photos, like them and leave comments you need to activate your profile,to do this follow link: <a href='http://localhost:8080/Camagru/index.php'>Click your link!</a>";
+				$from_name = "Camagru";
+				$from_mail = "support@camagru.com";
+
+				// Set preferences for Subject field
+				$subject_preferences = array(
+				"input-charset" => $encoding,
+				"output-charset" => $encoding,
+				"line-length" => 76,
+				"line-break-chars" => "\r\n"
+				);
+
+				// Set mail header
+				$header = "Content-type: text/html; charset=".$encoding." \r\n";
+				$header .= "From: ".$from_name." <".$from_mail."> \r\n";
+				$header .= "MIME-Version: 1.0 \r\n";
+				$header .= "Content-Transfer-Encoding: 8bit \r\n";
+				$header .= "Date: ".date("r (T)")." \r\n";
+				$header .= iconv_mime_encode("Subject", $mail_subject, $subject_preferences);
+
+				// Send mail
+				mail($mail_to, $mail_subject, $mail_message, $header);
 			}
 			else
 			{

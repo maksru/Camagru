@@ -34,18 +34,16 @@
 
 	<div class="gallery">
 		<div class="foto_gallery">
-			<a href="gallery/by WhiteWolfik (2).jpg"><img src="gallery/by WhiteWolfik (2).jpg"></a>
-			<a href="gallery/by WhiteWolfik (3).jpg"><img src="gallery/by WhiteWolfik (3).jpg"></a>
-			<a href="gallery/by WhiteWolfik (4).jpg"><img src="gallery/by WhiteWolfik (4).jpg"></a>
-			<a href="gallery/by WhiteWolfik (5).jpg"><img src="gallery/by WhiteWolfik (5).jpg"></a>
-			<a href="gallery/by WhiteWolfik (6).jpg"><img src="gallery/by WhiteWolfik (6).jpg"></a>
-			<a href="gallery/by WhiteWolfik (7).jpg"><img src="gallery/by WhiteWolfik (7).jpg"></a>
-			<a href="gallery/by WhiteWolfik (8).jpg"><img src="gallery/by WhiteWolfik (8).jpg"></a>
-			<a href="gallery/by WhiteWolfik (9).jpg"><img src="gallery/by WhiteWolfik (9).jpg"></a>
-			<a href="gallery/by WhiteWolfik (3).jpg"><img src="gallery/by WhiteWolfik (3).jpg"></a>
-			<a href="gallery/by WhiteWolfik (7).jpg"><img src="gallery/by WhiteWolfik (7).jpg"></a>
-			<a href="gallery/by WhiteWolfik (19).jpg"><img src="gallery/by WhiteWolfik (19).jpg"></a>
-			<a href="gallery/by WhiteWolfik (20).jpg"><img src="gallery/by WhiteWolfik (20).jpg"></a>
+				<?php
+					$id_gallery = $_SESSION['login_user']['id'];
+					$sql = "SELECT * FROM `images` WHERE id_gallery = $id_gallery";
+					$data = $pdo->query($sql);
+					$rezult = $data->fetchAll();
+					foreach ($rezult as $value)
+					{
+						echo('<img src="'.$value['path_images'].'">');
+					}
+				?>
 		</div>
 	</div>
 
