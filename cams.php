@@ -26,6 +26,7 @@
 					<div class="window_cams">
 						<video id="video" width="640" height="480" autoplay="autoplay"></video>
 						<div class="div_icon_block" id="div_icon_block" width="640" height="480" style="overflow: hidden;"></div>
+						<input type="file" name="Upload" style="z-index: 2">
 					</div>
 				<div class="button">
 					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" disabled/>

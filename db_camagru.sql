@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 `full_name` varchar(128) NOT NULL,
 `login` varchar(60) NOT NULL,
 `password` varchar(128) NOT NULL,
-`email` varchar(128) NOT NULL
+`email` varchar(128) NOT NULL,
+`confirmation` int(6) DEFAULT 0
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

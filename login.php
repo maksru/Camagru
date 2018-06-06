@@ -20,6 +20,9 @@
 		if ($rezult['password'] != $pass) :
 			die("ERROR: Wrong Password");
 		endif;
+		if ($rezult['confirmation'] == 0) :
+			die("ERROR: Wrong");
+		endif;
 		$_SESSION['login_user'] = $rezult;
 		header('Location: account_user.php');
 	endif;

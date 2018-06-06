@@ -31,7 +31,7 @@
 				$mail_to = $email;
 				$encoding = "utf-8";
 				$mail_subject = "Activation";
-				$mail_message = "Your login is: ".$login.".<br />Your password is: ".$_POST['password_1'].".<br />To make photos, like them and leave comments you need to activate your profile,to do this follow link: <a href='http://localhost:8080/Camagru/index.php'>Click your link!</a>";
+				$mail_message = "Your login is: ".$login.".<br />Your password is: ".$_POST['password_1'].".<br />To make photos, like them and leave comments you need to activate your profile,to do this follow link: <a href='http://localhost:8080/Camagru/get_valid_user.php?id=".$_POST['login']."&hash=".$pass."'>Click your link!</a>";
 				$from_name = "Camagru";
 				$from_mail = "support@camagru.com";
 
