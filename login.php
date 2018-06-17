@@ -18,10 +18,14 @@
 			die("ERROR: Wrong Login.");
 		endif;
 		if ($rezult['password'] != $pass) :
+			// die echo "<script type=\"text/javascript\">".
+			// 	"alert('ERROR: Wrong Password!');".
+			// 	"</script>";
+			// header('Location: login.php');	
 			die("ERROR: Wrong Password");
 		endif;
 		if ($rezult['confirmation'] == 0) :
-			die("ERROR: Wrong");
+			die("ERROR: Wrong confirmation");
 		endif;
 		$_SESSION['login_user'] = $rezult;
 		header('Location: account_user.php');
@@ -57,15 +61,18 @@
 				<form method="POST" action="login.php">
 					<input type="text" name="login" id="login" placeholder="Phone number, username, or email" required>
 					<br />
-					<input type="password" id="password" placeholder="Password" name="password" required>
+					<input type="password" id="password" placeholder="Password" name="password" required pattern="^(?=.*[A-Z])(?=.*[0-9]).{6,32}$" oninput="setCustomValidity(''); checkValidity(); setCustomValidity(validity.valid ? '' : 'Неверный пароль.');">
 					<br />
 					<input type="submit" name="log" value="Log in" id="color_button">
 					<br />
-					<p><a href="#" style="color: #5097ea">Forgot password</a></p>
+					<p><a href="forgot_password.php" style="color: #5097ea">Forgot password</a></p>
 				</form>
 			</div>
 			<div class="newacc">
 				<p>Don't have an account?<a href="register.php" style="color: #5097ea"> Sign up</a></p>
+			</div>
+			<div class="all_gallery">
+				<a href="gallery_all_users.php" style="color: #5097ea">Gallery All Users</a>
 			</div>
 		</div>
 	</div>

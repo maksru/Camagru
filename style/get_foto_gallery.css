@@ -4,10 +4,6 @@
 	margin: 0px;
 }
 
-body, html {
-	background-color: #fafafa; 
-}
-
 p {
 	font-size: 70px;
   	background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6);
@@ -18,13 +14,24 @@ p {
   	text-align: center;
 }
 
+input {
+	background-color: #5097ea;
+	border-radius: 10px;
+	outline: none;
+	border: 1px solid black;
+	text-align: center;
+	width: 15em;
+}
+
+/*************************************************************/
+/*Подвал*/
 footer {
 	position: absolute;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	left: 0;
+	bottom: 0;
     width: 100%;
-   	left: 0;
-    bottom: 0;
-    margin-top: 10px;
-    margin-bottom: 10px; 
 }
 
 footer ul{
@@ -46,33 +53,29 @@ footer li a {
 }
 
 .container {
-	background-color: white;
 	display: flex;
+	border-bottom: 1px solid black;
 	height: 80px;
+	background-color: #ffffff;
 }
 
 .gallery {
+	display: flex;
+	justify-content: space-between;
+  	align-items: center;
 	width: 100%;
 	height: auto;
 }
 
 .foto_gallery {
-	width: 852px;
 	padding-top: 10px;
 	margin: 0 auto;
 }
 
 .gallery img {
-	width: 200px;
-	height: 200px;
+	width: 30em;
+	height: auto;
 	padding: 5px;
-	filter: grayscale(100%);
-	transition: 1s;
-}
-
-.gallery img:hover {
-	filter: grayscale(0);
-	transform: 	scale(1.1);
 }
 
 /*************************************************************/
@@ -115,4 +118,41 @@ footer li a {
 .icon_user a {
 	text-decoration: none;
 	text-align: center;
+}
+
+.commits_block {
+	display: flex;
+    flex-direction: column;
+    width: 30em;
+}
+
+.like-container {
+	height: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.like-count {
+	color: black;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.like-container img {
+	width: 35px;
+}
+
+.container-box, .add-coment-box {
+	display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    margin-bottom: 10px;
+    padding: 20px;
+}
+/*--------------------------------------------------------------*/
+/*Скрываем id пользователя.*/
+.hidden {
+	display: none;
 }

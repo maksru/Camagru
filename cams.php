@@ -15,18 +15,27 @@
 	<title>Camagru | Cams</title>
 </head>
 <body>
-	<div class="container">
-		<a href="account_user.php" style="color: red">Gallery</a>
+ 	<div class="container">
+		<div class="gallery">
+			<a href="account_user.php"><img src="img/galleryIcon1.png"></a>
+		</div>
+		<div>
+			<p><a href="account_user.php">CAMAGRU</a></p>
+		</div>
 	</div>
 	<div class="container_cams">
 		<div id="allow"></div>
-
 		<div class="cams_block">
 			<div class="cams-block-end-button">
 					<div class="window_cams">
+						<img id="upImg" name="img" src="">
 						<video id="video" width="640" height="480" autoplay="autoplay"></video>
 						<div class="div_icon_block" id="div_icon_block" width="640" height="480" style="overflow: hidden;"></div>
-						<input type="file" name="Upload" style="z-index: 2">
+						<form id="image-upload">
+
+							<input id="handler" accept="image/*" type="file" name="">
+							<button id="button_upload">OK</button>
+						</form>
 					</div>
 				<div class="button">
 					<input id="button_shoot" type="button" value="Shoot"  style="display: block;" onclick="three_buttons()" disabled/>
@@ -54,7 +63,7 @@
 					$rezult = $data->fetchAll();
 					foreach ($rezult as $value)
 					{
-						echo('<div><img src="'.$value['path_images'].'"></div>');
+						echo('<div><img src="'.$value['path_images'].'"><button style="background-color:#5097ea; color:white;" onclick="del_img('.$value['id_images'].')">Delete</button></div>');
 					}
 				?>
 			</div>
@@ -152,7 +161,5 @@
 		</ul>
 	</footer>
 	<script src="js/cams_script.js" type="text/javascript"></script>
-	<!-- <script src="js/grag_and_drop.js" type="text/javascript"></script> -->
-	<!-- <script src="js/test2.js" type="text/javascript"></script> -->
 </body>
 </html>

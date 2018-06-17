@@ -1,3 +1,5 @@
+/*************************************************************/
+/*Применяется для всей странице и элементов на ней.*/
 * {
 	font-family: 'Roboto', sans-serif;
 	width: 100%;
@@ -5,7 +7,7 @@
 }
 
 body, html {
-	background-color: #fafafa; 
+	background-color: #fafafa;
 }
 
 p {
@@ -18,13 +20,14 @@ p {
   	text-align: center;
 }
 
+/*************************************************************/
+/*Подвал.*/
 footer {
 	position: absolute;
+	margin-bottom: 10px;
+	left: 0;
+	bottom: 0;
     width: 100%;
-   	left: 0;
-    bottom: 0;
-    margin-top: 10px;
-    margin-bottom: 10px; 
 }
 
 footer ul{
@@ -45,12 +48,16 @@ footer li a {
 	color: #133565;
 }
 
+/*************************************************************/
+/*Контейнер Header.*/
 .container {
-	background-color: white;
 	display: flex;
 	height: 80px;
+	background-color: #ffffff;
 }
 
+/*************************************************************/
+/*Галерея*/
 .gallery {
 	width: 100%;
 	height: auto;
@@ -58,7 +65,6 @@ footer li a {
 
 .foto_gallery {
 	width: 852px;
-	padding-top: 10px;
 	margin: 0 auto;
 }
 
@@ -94,25 +100,4 @@ footer li a {
 	margin-left: 25px;
 	margin-right: 25px; 	
 	width: 6em;
-}
-
-/*************************************************************/
-/*Переход на профиль пользователя.*/
-.user_profile {
-	display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-	width: 7em;
-	height: auto;
-	margin-top: 4px;
-}
-
-.icon_user {
-	height: auto;
-	width: 3em;
-}
-
-.icon_user a {
-	text-decoration: none;
-	text-align: center;
 }

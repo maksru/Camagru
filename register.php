@@ -22,11 +22,10 @@
 			$query = "SELECT * FROM `users` WHERE `login` = '$login'";
 			$data = $pdo->query($query);
 			$row = $data->fetch();
-
-			if (!isset($row['login']))
+			if (!isset($row['login']) && !isset($row['pass']))
 			{
-				$sql = "INSERT INTO `users` (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
-				$pdo->exec($sql);
+					$sql = "INSERT INTO `users` (login, password, full_name, email) VALUES ('" . $login . "', '" . $pass . "', '" . $full_name . "', '" . $email . "')";
+					$pdo->exec($sql);
 				// header("Location: test.php");
 				$mail_to = $email;
 				$encoding = "utf-8";
@@ -91,13 +90,13 @@
 				<h1>Camagru</h1>
 				<form method="POST" action="register.php">
 					<!-- <input type="text" name="mobile_number_or_email" placeholder="Mobile Number or Email" required> -->
-					<input type="text" name="email" placeholder="Email" required>
+					<input type="text" name="email" placeholder="Email" required pattern="^[A-Za-z0-9._\-]{1,32}@(?!\.)[A-Za-z0-9.\-]+\.[A-Za-z]{2,63}$">
 					<br />
 					<input type="text" name="full_name" placeholder="Full Name" required>
 					<br />
-					<input type="text" name="login" placeholder="Username" required>
+					<input type="text" name="login" placeholder="Username" size="2" required>
 					<br />
-					<input type="password" name="password_1" placeholder="Password" required>
+					<input type="password" name="password_1" placeholder="Password" size="6" required pattern="^(?=.*[A-Z])(?=.*[0-9]).{6,32}$">
 					<br />
 					<input type="submit" name="sign_up" value="Sign up" id="color_button">
 				</form>

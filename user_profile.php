@@ -3,6 +3,14 @@
 	session_start();
 	if (empty($_SESSION['login_user']) && $_SESSION['login_user'] == "")
 		header('Location: index.php');
+	if (isset($_POST) && !empty($_POST))
+	{
+		$login = $_SESSION['login_user']['login'];
+		$email = $_POST['email'];
+		$pass = hash('whirlpool', $_POST['new_password']);
+		$sql = "UPDATE `users` SET `password`='$pass', `email`='$email' WHERE login = '".$login."'";
+		$result = $pdo->query($sql);
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,21 +24,36 @@
 </head>
 <body>
 <div class="container">
-	<div class="container">
-		<a href="account_user.php" style="color: red">Gallery</a>
+	<div class="header_container">
+		<div class="gallery">
+			<a href="account_user.php"><img src="img/galleryIcon1.png"></a>
+		</div>
+		<div>
+			<p>CAMAGRU</p>
+		</div>
 	</div>
-	<h1>Camagru</h1>
 	<div class="user-profile">
 		<div class="panel-user-profile">
-			Профиль пользователя: <?php  echo $_SESSION['login_user']['full_name']?><hr />
 			<form method="POST" action="user_profile.php">
-				<label>Электронная почта: <?php  echo $_SESSION['login_user']['email']?></label>
+				Профиль пользователя: <?php  echo $_SESSION['login_user']['full_name']?><hr />
+				<label>Электронная почта</label>
 				<br />
-				<label>Логин: <?php  echo $_SESSION['login_user']['login']?></label>
+				<input type="text" name="email" value="<?php  echo $_SESSION['login_user']['email']?>">
 				<br />
-				<label>Пароль: </label>
-				<button><a href="logout.php">Выход</a></button>
-			</form>
+				<label>Логин</label>
+				<br />
+				<input type="text" name="login" value="<?php  echo $_SESSION['login_user']['login']?>">
+				<br />
+				<label>Введите старый пароль</label>
+				<br />
+				<input type="password" name="old_password">
+				<br />
+				<label>Введите новый пароль.</label>
+				<br />
+				<input type="password" name="new_password">
+				<input type="submit" value="Сохранить" style="background-color: #5097ea;">
+				<a href="logout.php"><input type="button" name="Exit" value="Выход"  style="background-color: #5097ea;"></a>
+				</form>
 		</div>
 	</div>
 </div>

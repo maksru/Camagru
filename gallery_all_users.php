@@ -1,8 +1,5 @@
 <?php
 	require_once "config/connect_db.php";
-	session_start();
-	if (empty($_SESSION['login_user']) && isset($_SESSION['login_user']) == 0)
-		header("Location: index.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="text/css" href="img/insta.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style/account_user.css">
+	<link rel="stylesheet" type="text/css" href="style/gallery_all_users.css">
 	<meta charset="utf-8">
-	<title>Camagru | User account</title>
+	<title>Camagru | Gallery Users</title>
 </head>
 <body>
 <div class="container">
@@ -22,12 +19,6 @@
 	<div>
 		<p>CAMAGRU</p>
 	</div>
-	<div class="user_profile">
-		<div class="icon_user">
-			<a href="user_profile.php"><img src="img/user_male_filled-512.png"></a>
-			<a href="user_profile.php"><?php echo mb_strtoupper($_SESSION['login_user']['login']);?></a>
-		</div>
-	</div>
 	<div class="use_cams">
 		<a href="cams.php"><img src="img/take_foto.png"></a>
 	</div>
@@ -36,14 +27,12 @@
 	<div class="gallery">
 		<div class="foto_gallery">
 				<?php
-					$id_gallery = $_SESSION['login_user']['id'];
-					// $sql = "SELECT * FROM `images` WHERE id_gallery = $id_gallery";
 					$sql = "SELECT * FROM `images` WHERE id_gallery";
 					$data = $pdo->query($sql);
 					$rezult = $data->fetchAll();
 					foreach ($rezult as $value)
 					{
-						echo('<a href="get_foto_gallery.php?id='.$value['id_images'].'&path='.$value['path_images'].'&user='.$value['text_images'].'"><img src="'.$value['path_images'].'"></a>');
+						echo('<a href="get_foto_gallery.php"><img src="'.$value['path_images'].'"></a>');
 					}
 				?>
 		</div>

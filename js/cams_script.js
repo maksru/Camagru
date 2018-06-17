@@ -12,7 +12,7 @@ window.onload = function ()
 		// функция которая будет выполнена при нажатии на кнопку захвата кадра
 		var captureMe = function () 
 		{
-			if (!videoStreamUrl) alert('То-ли вы не нажали "разрешить" в верху окна, то-ли что-то не так с вашим видео стримом');
+			// if (!videoStreamUrl) alert('То-ли вы не нажали "разрешить" в верху окна, то-ли что-то не так с вашим видео стримом');
 			// context.translate(canvas.width, 0);
 			// context.scale(-1, 1);
 			// context.drawImage(video, 0, 0, video.width, video.height);
@@ -55,14 +55,16 @@ window.onload = function ()
 			// разрешение от пользователя получено
 			// скрываем подсказку
 			allow.style.display = "none";
-			// получаем url поточного видео
-			videoStreamUrl = window.URL.createObjectURL(stream);
-			// устанавливаем как источник для video 
-			video.src = videoStreamUrl;
+			// // получаем url поточного видео
+			// videoStreamUrl = window.URL.createObjectURL(stream);
+			// // устанавливаем как источник для video 
+			// video.src = videoStreamUrl;
+			video.srcObject = stream;
 		}, function () {
 		console.log('что-то не так с видеостримом или пользователь запретил его использовать :P');
 		});
 };
+
 
 // ***********************************************************************************
 //Функция скрытия кномки "Shoot". 
@@ -213,16 +215,70 @@ function save_img () {
 	};
 }
 
+// ***********************************************************************************
+// Удаление фото из базы данных.
+function del_img (del) {
+	var img_id = del;
+	var img_src = document.getElementById("new-img");
+	var data = "img_id=" + img_id;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "delimage.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(data);
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			window.location.reload();
+			console.log(this.responseText);
+		}
+	};
+}
 
+// ***********************************************************************************
+// Загрузка фото на canvas.
+var handler = document.getElementById("handler");
+var button_upload = document.getElementById("button_upload");
+var newImg = document.getElementById("upImg");
 
+button_upload.addEventListener("click", uploadImg);
 
+function uploadImg(e) {
+	e.preventDefault();
+	var img = new FileReader();
+	img.readAsDataURL(handler.files[0]);
+	img.onload = function (a) {
+        newImg.src = a.target.result;
+    	captureImg(newImg.src);
+    };
+}
 
+var captureImg = function (src) 
+{
+	var context = canvas.getContext('2d');
+	var newImage = new Image();
+	newImage.src = src;
+	context.drawImage(newImage, 0, 0, 640, 480);
+	context.restore();
+	// *************************************************************
+	// Склеивание фото и отрисовываем на канвасе текущий кадр видео.
+	var drawnImg = document.getElementsByClassName("div_icon");
+	for (var i = 0; drawnImg[i]; i++)
+	{
+		canvas.getContext("2d").drawImage(
+			drawnImg[i],
+			drawnImg[i].style.left.slice(0, -2), drawnImg[i].style.top.slice(0, -2),
+			drawnImg[i].width, drawnImg[i].height
+		);
+	}
+}
 
-
-
-
-
-
+var button_up = document.getElementById("button_shoot");
+button_up.addEventListener("click", upload);
+	function upload() {
+		var base64dataUrl = canvas.toDataURL('image/png');
+		var img = document.getElementById("new-img");
+		img.src = base64dataUrl;
+	}
+	
 
 
 
